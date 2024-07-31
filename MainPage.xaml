@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="CompleteCalculaitor.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CompleteCalculaitor"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition  Width="*"/>
+            <ColumnDefinition  Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition x:Name="FifthColumn" Width="*" />
+
+        </Grid.ColumnDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="FifthColumn.Width" Value="0"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="FifthColumn.Width" Value="*"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <TextBlock x:Name="ContentText" Margin="25,22,53,17" TextWrapping="Wrap" Text="0" FontSize="50" TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="4"/>
+        <Button Content="%"  VerticalAlignment="Stretch" FontSize="36" CornerRadius="10"  HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Click="onOperatorClick" Width="200" Height="75"/>
+        <Button Content="CE" Click="onAClick"  VerticalAlignment="Stretch" FontSize="36" CornerRadius="10" HorizontalAlignment="Stretch" MinHeight="64" Grid.Row="1" Grid.Column="1" Width="200" Height="75"/>
+        <Button Content="C&#xA;" VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="2" Width="200"/>
+        <Button Content="Del&#xA;" VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="3" Click="Button_Click_1" Width="200"/>
+        <Button Content="1/X&#xA;"  VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="0" Click="Button_Click_3" Width="200" />
+        <Button Content="x^2&#xA;"  VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Click="Button_Click_2" Width="200" />
+        <Button Content="√x"  Click="Button_Click" VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="2" Width="200" />
+        <Button Content="÷"  VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="3" Click="onOperatorClick" Width="200" />
+        <Button Content="7&#xA;" VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" Click="numberClick" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="0" AutomationProperties.AccessKey="" AutomationProperties.AcceleratorKey="" Width="200"/>
+        <Button Content="8&#xA;"  VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" Click="numberClick" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" Width="200"/>
+        <Button Content="9&#xA;" VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" Click="numberClick" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="2" Width="200"/>
+        <Button Content="X"  Click="onOperatorClick" VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="3" Width="200"/>
+        <Button Content="4&#xA;" VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" Click="numberClick" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="0" Width="200"/>
+        <Button Content="5&#xA;"  VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" Click="numberClick" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="1" Width="200"/>
+        <Button Content="6&#xA;"  VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" Click="numberClick" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="2" Width="200"/>
+        <Button Content="-"  Click="onOperatorClick" VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="3" Width="200"/>
+        <Button Content="1&#xA;" VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" Click="numberClick" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="0" Width="200"/>
+        <Button Content="2&#xA;"  VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" Click="numberClick" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="1" Width="200"/>
+        <Button Content="3&#xA;"  VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" Click="numberClick" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="2" Width="200"/>
+        <Button Content="+" Click="onOperatorClick" VerticalAlignment="Stretch" FontSize="36" CornerRadius="10" Height="75" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="3" Width="200"/>
+        <Button Content="0&#xA;"  VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" Click="numberClick" HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="0" Width="200"/>
+        <Button Content=",&#xA;"  VerticalAlignment="Stretch" FontSize="36" CornerRadius="10" Height="75" HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="1" Width="200"/>
+        <Button Content="=&#xA;"  Click="onResultClick" VerticalAlignment="Stretch" Height="75" FontSize="36" CornerRadius="10" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center" Grid.Row="6" Grid.Column="3" Margin="0,25,0,25" Width="300"/>
+        <TextBlock x:Name="txtCronologia" Text="CRONOLOGIA" Grid.Column="4" Grid.Row="1" FontSize="18" Height="750" TextAlignment="Center" />
+        <Button Grid.Column="2" Content="+/-" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="200" Height="75" FontSize="36" CornerRadius="10" Click="Button_Click_4"/>
+
+    </Grid>
+</Page>

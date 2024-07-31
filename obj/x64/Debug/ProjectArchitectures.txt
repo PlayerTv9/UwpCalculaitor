@@ -1,0 +1,1 @@
+F:\Universal Windows Application Project\CompleteCalculaitor\CompleteCalculaitor\CompleteCalculaitor.csproj;x64
